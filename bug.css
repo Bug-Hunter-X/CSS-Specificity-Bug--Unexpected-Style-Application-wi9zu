@@ -1,0 +1,23 @@
+The CSS specificity rules can sometimes lead to unexpected results.  For example, consider the following:
+
+```css
+#my-element {
+  color: blue;
+}
+
+.my-class {
+  color: red;
+}
+
+#my-element.my-class {
+  color: green; /* This rule might not apply as expected */
+}
+
+#my-element.another-class {
+  color: purple; /* This rule might unexpectedly override the previous one */
+}
+```
+
+If an element has both `#my-element` and `.my-class`, the specificity rules dictate which styles are applied.  The order of declaration in the stylesheet does *not* determine which rule is applied (unlike some other programming languages).
+
+This can cause issues when combining classes or when adding new styles which might unintentionally override existing ones due to specificity.  Debugging such issues can be difficult, requiring careful examination of all applicable CSS rules and their relative specificity.
